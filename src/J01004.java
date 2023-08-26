@@ -1,6 +1,6 @@
 //J01004 SỐ NGUYÊN TỐ
 import java.util.Scanner;
-import java.lang.Math;
+
 
 public class J01004 {
     static boolean check_prime(int n){
