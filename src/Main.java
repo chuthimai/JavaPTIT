@@ -1,30 +1,24 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class Main {
     public static void main(String args[]) {
-        // Tạo mảng
-        String[] arr = {"1", "2" , "3", "4", "5"};
-        // In mảng ban đầu
-        System.out.println("orgin arr:\n"+Arrays.toString(arr));
+        String a = "a"; //00001
+        String b = "a"; //00001
+        System.out.println(a.equals(b));
 
-        // Chuyển mảng thành ArrayList
-        List<String> testList = new ArrayList<>(Arrays.asList(arr));
+    }
+}
 
-        // In ArrayList vừa tạo
-        System.out.println("ArrayList before:\n"+ testList);
+class SinhVien implements Comparable<SinhVien> {
+    private String name;
+    private Integer age;
 
-        // Thêm phần tử vào cuối ArrayList
-        testList.add("88");
-        testList.add("99");
 
-        // In ArrayList sau khi thêm phần tử
-        System.out.println("ArrayList after:\n"+ testList);
-
-        // Chuyển ArrayList trở về Array và lưu vào mảng kết quả
-        arr = testList.toArray(new String[0]);
-
-        // In mảng kết quả
-        System.out.println("new arr :\n"+Arrays.toString(arr));
-
+    @Override
+    public int compareTo(@NotNull SinhVien sinhvien) {
+        boolean isEquale = Objects.equals(this.name, sinhvien.name) && Objects.equals(this.age, sinhvien.age);
+        return 0;
     }
 }
