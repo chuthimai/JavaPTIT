@@ -11,7 +11,7 @@ public class J05017_WA {
         private static int sMa = 1;
         private String ma, tenKH;
         private int soDau, soCuoi, soDien;
-        private int tien;
+        private double tien;
 
         public Bill(Scanner sc) {
             ma = "KH" + String.format("%02d", sMa++);
@@ -23,23 +23,22 @@ public class J05017_WA {
         }
 
         public void tinhTien(){
-            if (soDien > 100) tien = (int) ((50*100 + 50*150 + (soDien-100)*200) *1.05);
+            if (soDien > 100) tien = (50*100 + 50*150 + (soDien-100)*200) *1.05;
             else if (soDien > 50) {
-                double t = ((50*100 + (soDien-50)*150) *1.03);
-                if (t > (int) t + 0.5) tien = (int) t + 1;
-                else tien = (int) t;
+                tien = (50*100 + (soDien-50)*150) *1.03;
             }
-            else tien = (int) (soDien*100*1.02);
+            else tien = (soDien*100*1.02);
         }
 
         @Override
         public String toString() {
-            return ma+" "+tenKH+" "+tien;
+            if (tien - (int) tien < 0.5) return ma+" "+tenKH+" "+(int) tien;
+            else return ma+" "+tenKH+" "+(int) tien + 1;
         }
 
         @Override
         public int compareTo(Bill o) {
-            if (o.tien - tien != 0) return o.tien - tien;
+            if (o.tien - tien != 0) return Double.compare(o.tien, tien);
             return ma.compareTo(o.ma);
         }
     }
