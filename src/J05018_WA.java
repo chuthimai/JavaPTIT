@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class J05018 {
+public class J05018_WA {
     private static class HocSinh {
         private static int sMa = 1;
         private String ma, ten, loai;
