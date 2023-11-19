@@ -21,6 +21,8 @@ public class J05018_WA {
                 else sum += arr[i];
             }
             diemTB = sum/12;
+            if ((int) (diemTB*100) % 10 == 5 ) diemTB = Double.parseDouble(String.format("%.1f", diemTB+0.1));
+
             setLoai();
         }
 
@@ -34,9 +36,7 @@ public class J05018_WA {
 
         @Override
         public String toString() {
-            if ((int) (diemTB*100) % 10 == 5 )
-                return ma+" "+ten+" "+String.format("%.1f", diemTB+0.1)+" "+loai;
-            else return ma+" "+ten+" "+String.format("%.1f", diemTB)+" "+loai;
+            return ma+" "+ten+" "+String.format("%.1f", diemTB)+" "+loai;
         }
     }
 
