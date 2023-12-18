@@ -3,6 +3,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class J07085_WA {
     private static class IOFile {
@@ -31,7 +32,7 @@ public class J07085_WA {
     }
 
     private static void digitSum (String s){
-        String[] listNum = s.split("[a-zA-Z]+");
+        String[] listNum = s.split("[a-zA-Z ]+");
         String num = "";
         for (String i:listNum) num += i;
         long sum = 0, l = num.length();
@@ -44,10 +45,17 @@ public class J07085_WA {
     }
 
     public static void main(String[] args) {
-        List<String> arr = IOFile.read("DATA.in");
-        for (String i:arr) digitSum(i);
+        List<String> arr = IOFile.read("src/DATA.in");
+        String str = "";
+//        System.out.println(arr);
+        for (String i:arr) str += i + " ";
+        String[] arr1 = str.split("[\\s\n]+");
+        for (String i:arr1) digitSum(i);
 //        Scanner sc = new Scanner(System.in);
 //        String string = sc.nextLine();
 //        digitSum(string);
+//        List<String> arr = new ArrayList<>();
+//        arr.add("Jhsf00dklT12uhf780LPPZH\nAAAAddd0000000000000000001T");
+//        IOFile.write("src/DATA.in", arr);
     }
 }
